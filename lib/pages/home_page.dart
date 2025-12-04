@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/model/category_model.dart';
 import 'package:foodapp/model/product_model.dart';
+import 'package:foodapp/pages/cart_page.dart';
 import 'package:foodapp/utils/consts.dart';
 import 'package:foodapp/widgets/food_product_items.dart';
 import 'package:provider/provider.dart';
-
 import '../provider/cart_provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -101,44 +101,52 @@ class _HomePageState extends State<HomePage> {
                       child: const Icon(Icons.search, color: kblack),
                     ),
                     const SizedBox(width: 10),
-                    Stack(
-                      alignment: AlignmentDirectional.topCenter,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(10),
-                          margin: const EdgeInsets.symmetric(vertical: 15),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black12),
-                            borderRadius: BorderRadius.circular(10),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyCartPage()),
+                        );
+                      },
+                      child: Stack(
+                        alignment: AlignmentDirectional.topCenter,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            margin: const EdgeInsets.symmetric(vertical: 15),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black12),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: const Icon(
+                              Icons.shopping_cart_outlined,
+                              color: kblack,
+                            ),
                           ),
-                          child: const Icon(
-                            Icons.shopping_cart_outlined,
-                            color: kblack,
-                          ),
-                        ),
-                        cartProvider.carts.isNotEmpty
-                            ? Positioned(
-                                right: 0,
-                                top: 0,
-                                child: GestureDetector(
-                                  child: Container(
-                                    padding: EdgeInsets.all(3),
-                                    decoration: BoxDecoration(
-                                      color: Color(0xfff95f60),
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Text(
-                                      cartProvider.carts.length.toString(),
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
+                          cartProvider.carts.isNotEmpty
+                              ? Positioned(
+                                  right: 0,
+                                  top: 0,
+                                  child: GestureDetector(
+                                    child: Container(
+                                      padding: EdgeInsets.all(3),
+                                      decoration: BoxDecoration(
+                                        color: Color(0xfff95f60),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Text(
+                                        cartProvider.carts.length.toString(),
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              )
-                            : Container(),
-                      ],
+                                )
+                              : Container(),
+                        ],
+                      ),
                     ),
                   ],
                 ),
