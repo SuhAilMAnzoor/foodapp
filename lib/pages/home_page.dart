@@ -41,6 +41,8 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  String selectedCity = "Badah";
+
   @override
   Widget build(BuildContext context) {
     CartProvider cartProvider = Provider.of<CartProvider>(context);
@@ -55,34 +57,65 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            "Your Location",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Icon(
-                            Icons.keyboard_arrow_down,
-                            color: Colors.black,
-                            size: 20,
-                          ),
-                        ],
-                      ),
                       SizedBox(height: 5),
                       Row(
                         children: [
                           Icon(Icons.location_on, color: korange, size: 20),
                           SizedBox(width: 5),
-                          Text(
-                            "Badah, Sindh",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: kblack,
-                              fontWeight: FontWeight.w600,
+                          PopupMenuButton<String>(
+                            color: Colors.white,
+                            offset: const Offset(0, 35),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14),
+                            ),
+                            onSelected: (value) {
+                              setState(() => selectedCity = value);
+                            },
+                            itemBuilder: (context) => const [
+                              PopupMenuItem(
+                                value: "Badah",
+                                child: Text("Badah"),
+                              ),
+                              PopupMenuItem(
+                                value: "Larkana",
+                                child: Text("Larkana"),
+                              ),
+                              PopupMenuItem(
+                                value: "Karachi",
+                                child: Text("Karachi"),
+                              ),
+                              PopupMenuItem(
+                                value: "Sukkur",
+                                child: Text("Sukkur"),
+                              ),
+                            ],
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.black12),
+                                // 👈 OUTER BORDER
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                children: [
+                                  Text(
+                                    selectedCity,
+                                    style: const TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  const Icon(
+                                    Icons.keyboard_arrow_down,
+                                    color: Colors.black,
+                                    size: 20,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
