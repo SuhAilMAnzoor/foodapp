@@ -1,8 +1,6 @@
 # foodapp
-Main Page
 <img src="https://github.com/SuhAilMAnzoor/foodapp/blob/main/assets/images/github%20screenshots%20(1).jpg?raw=true" alt="Main Page Of App" width="300" height="600">
-Cart Page
-[https://github.com/SuhAilMAnzoor/foodapp/blob/main/assets/images/github%20screenshots%20(2).jpg?raw=true]
+<img src="[https://github.com/SuhAilMAnzoor/foodapp/blob/main/assets/images/github%20screenshots%20(1)](https://github.com/SuhAilMAnzoor/foodapp/blob/main/assets/images/github%20screenshots%20(2).jpg?raw=true).jpg?raw=true" alt="Cart Page" width="300" height="600">
 foodApp with Provider State Management
 
 ## Getting Started
