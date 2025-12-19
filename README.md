@@ -1,5 +1,8 @@
 # foodapp
-
+Main Page
+(https://raw.githubusercontent.com/SuhAilMAnzoor/foodapp/refs/heads/main/assets/images/github%20screenshots%20(1).jpg)
+Cart Page
+[https://github.com/SuhAilMAnzoor/foodapp/blob/main/assets/images/github%20screenshots%20(2).jpg?raw=true]
 foodApp with Provider State Management
 
 ## Getting Started
